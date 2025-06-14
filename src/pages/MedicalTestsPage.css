@@ -20,13 +20,13 @@ body {
 
 .page-title {
   text-align: center;
-  margin-bottom: 1.5rem;
+  margin: 2rem 0; /* Top and bottom: 2rem, left and right: 0 */
   color: #1f2937;
   width: 100%;
   font-size: 1.5rem;
-  padding-left: 1rem; /* add some left/right padding for title */
-  padding-right: 1rem;
+  padding: 0 1rem; /* left and right padding */
   box-sizing: border-box;
+  display: none;
 }
 
 .medical-tests-grid {
