@@ -31,15 +31,14 @@ const TestPackageCard = () => {
   if (error) return <p>{isArabic ? "فشل في تحميل البيانات" : error}</p>;
 
   return (
-    <div className="flex flex-wrap justify-center gap-4">
+    <div className="w-[1276px] flex flex-wrap gap-4 justify-start" dir="rtl">
       {tests.map((test) => (
         <div
           key={test.id}
-          className="bg-white rounded-xl p-4 shadow-md max-w-[280px] w-full transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:bg-slate-50 flex flex-col items-center"
-          dir="rtl"
+          className="w-[344px] bg-white rounded-xl border border-gray-200 p-4 shadow-sm hover:shadow-md transition-all duration-300 flex flex-col items-center"
         >
           {test.logo ? (
-            <div className="flex justify-center mb-4 transition-all duration-300">
+            <div className="mb-4">
               <img
                 src={test.logo}
                 alt={
@@ -47,22 +46,23 @@ const TestPackageCard = () => {
                     ? test.arabicName || test.name
                     : test.name || test.arabicName
                 }
-                className="w-[140px] h-[140px] object-contain transition-all duration-300"
+                className="w-[140px] h-[140px] object-contain"
               />
             </div>
           ) : (
-            <div className="text-4xl text-blue-600 mb-4 transition-all duration-300">
-              🔬
-            </div>
+            <div className="text-4xl text-blue-600 mb-4">🔬</div>
           )}
 
-          <div className="text-right w-full">
-            <h3 className="text-lg text-gray-800 mb-3 leading-tight transition-all duration-300">
+          <div className="text-center w-full">
+            <p className="text-blue-600 font-medium text-base mb-1">
+              ${test.price || "550.16"}
+            </p>
+            <h3 className="text-gray-900 font-semibold text-base mb-1">
               {isArabic
                 ? test.arabicName || test.name
                 : test.name || test.arabicName}
             </h3>
-            <p className="text-sm text-gray-500 mb-4 overflow-hidden overflow-ellipsis line-clamp-3">
+            <p className="text-sm text-gray-500 leading-snug">
               {isArabic
                 ? test.arabicDescription ||
                   test.description ||
@@ -72,10 +72,6 @@ const TestPackageCard = () => {
                   "No description available"}
             </p>
           </div>
-
-          <button className="px-4 py-2 bg-blue-600 text-white text-sm rounded-md transition-all duration-300 hover:bg-blue-700 hover:-translate-y-[1px] hover:shadow-md self-start">
-            {isArabic ? "تفاصيل" : "Details"}
-          </button>
         </div>
       ))}
     </div>

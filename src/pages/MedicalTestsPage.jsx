@@ -96,12 +96,6 @@ const MedicalTestsPage = () => {
         />
       )}
 
-      <div className="medical-tests-grid">
-        {tests.map((test) => (
-          <TestPackageCard key={test.id} test={test} />
-        ))}
-      </div>
-
       <Footer />
 
       <StickyButton
