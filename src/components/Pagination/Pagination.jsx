@@ -1,19 +1,20 @@
 import React from "react";
+import { FiChevronLeft, FiChevronRight } from "react-icons/fi";
 
 const Pagination = ({ currentPage, totalPages, onPageChange }) => {
   return (
-    <div className="flex justify-center gap-2 mt-6 flex-wrap w-full px-2">
+    <div className="flex justify-center gap-[8.35px] mt-6 flex-wrap w-full px-2">
       {/* Previous Button */}
       <button
         onClick={() => onPageChange(currentPage - 1)}
         disabled={currentPage === 1}
-        className={`w-9 h-9 flex items-center justify-center rounded-full transition-all text-gray-800 ${
+        className={`w-[53.42px] h-[53.42px] flex items-center justify-center rounded-full border transition-all text-gray-800 text-lg font-semibold ${
           currentPage === 1
-            ? "opacity-50 cursor-not-allowed bg-gray-200"
-            : "bg-gray-100 hover:bg-blue-600 hover:text-white"
+            ? "opacity-50 cursor-not-allowed bg-gray-100"
+            : "bg-white hover:bg-blue-100"
         }`}
       >
-        ‹
+        <FiChevronRight className="w-5 h-5" />
       </button>
 
       {/* Page Numbers */}
@@ -33,10 +34,10 @@ const Pagination = ({ currentPage, totalPages, onPageChange }) => {
           <button
             key={pageNum}
             onClick={() => onPageChange(pageNum)}
-            className={`w-9 h-9 flex items-center justify-center rounded-full transition-all ${
+            className={`w-[53.42px] h-[53.42px] flex items-center justify-center rounded-full border text-lg font-semibold transition-all ${
               currentPage === pageNum
-                ? "bg-blue-600 text-white"
-                : "bg-gray-100 text-gray-800 hover:bg-blue-600 hover:text-white"
+                ? "bg-[#0798F1] text-white"
+                : "bg-white text-gray-800 hover:bg-blue-100"
             }`}
           >
             {pageNum}
@@ -52,7 +53,7 @@ const Pagination = ({ currentPage, totalPages, onPageChange }) => {
           </span>
           <button
             onClick={() => onPageChange(totalPages)}
-            className="w-9 h-9 flex items-center justify-center rounded-full bg-gray-100 text-gray-800 hover:bg-blue-600 hover:text-white transition-all"
+            className="w-[53.42px] h-[53.42px] flex items-center justify-center rounded-full border bg-white text-gray-800 text-lg font-semibold hover:bg-blue-100 transition-all"
           >
             {totalPages}
           </button>
@@ -63,13 +64,13 @@ const Pagination = ({ currentPage, totalPages, onPageChange }) => {
       <button
         onClick={() => onPageChange(currentPage + 1)}
         disabled={currentPage === totalPages}
-        className={`w-9 h-9 flex items-center justify-center rounded-full transition-all text-gray-800 ${
+        className={`w-[53.42px] h-[53.42px] flex items-center justify-center rounded-full border transition-all text-gray-800 text-lg font-semibold ${
           currentPage === totalPages
-            ? "opacity-50 cursor-not-allowed bg-gray-200"
-            : "bg-gray-100 hover:bg-blue-600 hover:text-white"
+            ? "opacity-50 cursor-not-allowed bg-gray-100"
+            : "bg-white hover:bg-blue-100"
         }`}
       >
-        ›
+        <FiChevronLeft className="w-5 h-5" />
       </button>
     </div>
   );
