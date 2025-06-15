@@ -52,28 +52,45 @@ const Checkout = () => {
       </header>
 
       {/* Breadcrumb */}
-      <div
-        className="max-w-[1440px] mx-auto px-4 md:px-[80px] pt-6 text-right"
-        dir="rtl"
-      >
+      <div className="max-w-[1440px] mx-auto px-4 md:px-[80px] pt-6 text-right">
         <div className="text-sm text-[#4B4B4B] font-normal mb-[-4px]">
           &lt; الرجوع
         </div>
-        <div className="text-[#222222] text-[24px] font-bold leading-[100%] text-right mt-[6px]">
+        <div className="text-[#222222] text-[24px] font-bold leading-[100%] mt-[6px]">
           الدفع
         </div>
       </div>
 
-      <br></br>
+      {/* Content Container */}
+      <main className="max-w-[1280px] mx-auto mt-6 p-4 md:p-8 flex flex-col lg:flex-row-reverse gap-[20px] bg-white rounded-xl shadow-sm">
+        {/* Order Summary (Right in RTL) */}
+        <section className="w-full lg:w-1/2 bg-white p-4 rounded-xl">
+          <h2 className="text-xl font-bold mb-4 text-[#1C1C1C]">
+            تفاصيل الطلب
+          </h2>
+          <div className="flex justify-between mb-3">
+            <div>
+              <p className="font-medium">جراحة الفم والأسنان</p>
+              <p className="text-sm text-gray-500">
+                إزالة الصفائح والبراغي - يتطلب الصيام
+              </p>
+            </div>
+            <div className="text-gray-600">250 JOD</div>
+          </div>
+          <div className="flex justify-between text-sm text-gray-500 mb-2">
+            <span>الضريبة (%16)</span>
+            <span>35 JOD</span>
+          </div>
+          <div className="flex justify-between font-bold text-blue-600 mt-2">
+            <span>المبلغ المستحق (شامل الضريبة)</span>
+            <span>285 JOD</span>
+          </div>
+        </section>
 
-      <main
-        className="max-w-[1440px] mx-auto px-4 md:px-[80px] grid grid-cols-1 lg:grid-cols-2 gap-8"
-        dir="rtl"
-      >
-        {/* Left Column */}
-        <section className="flex flex-col gap-6">
-          {/* Saved Addresses Block */}
-          <div className="bg-white rounded-xl shadow-sm p-6">
+        {/* Form & Payment */}
+        <section className="w-full lg:w-1/2 flex flex-col gap-6">
+          {/* Saved Addresses */}
+          <div className="bg-white p-6 rounded-xl shadow-sm">
             <h2 className="text-xl font-bold mb-4 text-[#1C1C1C]">
               عنوان الفواتير المحفوظة
             </h2>
@@ -100,8 +117,8 @@ const Checkout = () => {
             </div>
           </div>
 
-          {/* New Address Form Block */}
-          <div className="bg-white rounded-xl shadow-sm p-6">
+          {/* New Address Form */}
+          <div className="bg-white p-6 rounded-xl shadow-sm">
             <h3 className="text-base font-semibold mb-4 text-[#1C1C1C]">
               إضافة عنوان جديد
             </h3>
@@ -147,8 +164,8 @@ const Checkout = () => {
             </button>
           </div>
 
-          {/* Payment Methods Block */}
-          <div className="bg-white rounded-xl shadow-sm p-6">
+          {/* Payment Method */}
+          <div className="bg-white p-6 rounded-xl shadow-sm">
             <h2 className="text-lg font-semibold mb-4 text-[#1C1C1C]">
               أختر طريقة الدفع
             </h2>
@@ -180,30 +197,6 @@ const Checkout = () => {
                 دفع بالتقسيط عن طريق الموقع — من 10 إلى 10,000 JOD
               </div>
             </div>
-          </div>
-        </section>
-
-        {/* Right Column – Order Summary */}
-        <section className="bg-white rounded-xl shadow-sm p-6 h-fit">
-          <h2 className="text-xl font-bold mb-4 text-[#1C1C1C]">
-            تفاصيل الطلب
-          </h2>
-          <div className="flex justify-between mb-3">
-            <div>
-              <p className="font-medium">جراحة الفم والأسنان</p>
-              <p className="text-sm text-gray-500">
-                إزالة الصفائح والبراغي - يتطلب الصيام
-              </p>
-            </div>
-            <div className="text-gray-600">250 JOD</div>
-          </div>
-          <div className="flex justify-between text-sm text-gray-500 mb-2">
-            <span>الضريبة (%16)</span>
-            <span>35 JOD</span>
-          </div>
-          <div className="flex justify-between font-bold text-blue-600 mt-2">
-            <span>المبلغ المستحق (شامل الضريبة)</span>
-            <span>285 JOD</span>
           </div>
         </section>
       </main>
