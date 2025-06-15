@@ -66,15 +66,18 @@ const Checkout = () => {
 
       <br></br>
 
-      {/* Checkout Body */}
-      <main className="max-w-[1440px] mx-auto px-4 md:px-[80px] grid grid-cols-1 lg:grid-cols-2 gap-8">
-        {/* Billing Form & Payment */}
-        <section>
-          <div className="bg-white rounded-xl shadow-sm p-6 mb-6">
+      <main
+        className="max-w-[1440px] mx-auto px-4 md:px-[80px] grid grid-cols-1 lg:grid-cols-2 gap-8"
+        dir="rtl"
+      >
+        {/* Left Column */}
+        <section className="flex flex-col gap-6">
+          {/* Saved Addresses Block */}
+          <div className="bg-white rounded-xl shadow-sm p-6">
             <h2 className="text-xl font-bold mb-4 text-[#1C1C1C]">
               عنوان الفواتير المحفوظة
             </h2>
-            <div className="space-y-3 mb-6">
+            <div className="space-y-3">
               {[1, 2].map((_, i) => (
                 <div
                   key={i}
@@ -90,12 +93,18 @@ const Checkout = () => {
                     </p>
                   </div>
                   {i === 0 && (
-                    <span className="text-blue-500 font-bold">✔</span>
+                    <span className="text-blue-500 font-bold text-lg">✔</span>
                   )}
                 </div>
               ))}
             </div>
-            <h3 className="text-base font-semibold mb-2">إضافة عنوان جديد</h3>
+          </div>
+
+          {/* New Address Form Block */}
+          <div className="bg-white rounded-xl shadow-sm p-6">
+            <h3 className="text-base font-semibold mb-4 text-[#1C1C1C]">
+              إضافة عنوان جديد
+            </h3>
             <form className="grid grid-cols-2 gap-4 text-sm">
               <input
                 type="text"
@@ -138,6 +147,7 @@ const Checkout = () => {
             </button>
           </div>
 
+          {/* Payment Methods Block */}
           <div className="bg-white rounded-xl shadow-sm p-6">
             <h2 className="text-lg font-semibold mb-4 text-[#1C1C1C]">
               أختر طريقة الدفع
@@ -173,7 +183,7 @@ const Checkout = () => {
           </div>
         </section>
 
-        {/* Order Summary */}
+        {/* Right Column – Order Summary */}
         <section className="bg-white rounded-xl shadow-sm p-6 h-fit">
           <h2 className="text-xl font-bold mb-4 text-[#1C1C1C]">
             تفاصيل الطلب
