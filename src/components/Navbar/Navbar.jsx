@@ -123,6 +123,16 @@ const Navbar = () => {
                         {t("about")}
                       </Link>
                     </li>
+
+                    <li>
+                      <Link
+                        to="/checkout"
+                        className="block text-gray-600 font-semibold text-base hover:text-blue-600 hover:bg-gray-100 px-3 py-2 rounded"
+                        onClick={() => setIsMobileMenuOpen(false)}
+                      >
+                        الدفع
+                      </Link>
+                    </li>
                   </ul>
                 </motion.div>
               )}
