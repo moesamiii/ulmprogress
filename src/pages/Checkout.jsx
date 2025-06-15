@@ -1,11 +1,11 @@
 import React from "react";
-import { useNavigate } from "react-router-dom"; // ✅ Add this
+import { useNavigate } from "react-router-dom";
 import { FiChevronDown, FiShoppingCart, FiBell } from "react-icons/fi";
 import avatar from "../assets/avatar-man.png";
 import logo from "../assets/ulm-care-logo.png";
 
 const Checkout = () => {
-  const navigate = useNavigate(); // ✅ Use navigate
+  const navigate = useNavigate();
 
   return (
     <div className="bg-[#F9FAFB] min-h-screen text-right" dir="rtl">
@@ -51,27 +51,43 @@ const Checkout = () => {
         </nav>
       </header>
 
+      {/* Breadcrumb */}
+      <div className="max-w-[1440px] mx-auto px-4 md:px-[80px] mt-6 mb-4 text-sm text-[#4B4B4B] font-medium">
+        <span
+          onClick={() => navigate(-1)}
+          className="cursor-pointer hover:underline"
+        >
+          الرجوع
+        </span>{" "}
+        &gt; <span className="text-[#1C1C1C] font-semibold">الدفع</span>
+      </div>
+
       {/* Checkout Body */}
-      <main className="max-w-[1440px] mx-auto px-4 md:px-[80px] py-12 grid grid-cols-1 lg:grid-cols-2 gap-8">
+      <main className="max-w-[1440px] mx-auto px-4 md:px-[80px] grid grid-cols-1 lg:grid-cols-2 gap-8">
         {/* Billing Form & Payment */}
         <section>
           <div className="bg-white rounded-xl shadow-sm p-6 mb-6">
-            <h2 className="text-lg font-semibold mb-4">
+            <h2 className="text-xl font-bold mb-4 text-[#1C1C1C]">
               عنوان الفواتير المحفوظة
             </h2>
             <div className="space-y-3 mb-6">
               {[1, 2].map((_, i) => (
                 <div
                   key={i}
-                  className={`border p-3 rounded-lg ${
+                  className={`border p-3 rounded-lg flex justify-between items-center ${
                     i === 0 ? "border-blue-500 bg-blue-50" : "border-gray-300"
                   }`}
                 >
-                  <p className="font-bold text-sm">محمود محمد</p>
-                  <p className="text-sm text-gray-500">
-                    شارع الملك في حي الورود - الرياض، المملكة العربية السعودية
-                    11025
-                  </p>
+                  <div>
+                    <p className="font-bold text-sm">محمود محمد</p>
+                    <p className="text-sm text-gray-500">
+                      شارع الملك في حي الورود - الرياض، المملكة العربية السعودية
+                      11025
+                    </p>
+                  </div>
+                  {i === 0 && (
+                    <span className="text-blue-500 font-bold">✔</span>
+                  )}
                 </div>
               ))}
             </div>
@@ -119,7 +135,9 @@ const Checkout = () => {
           </div>
 
           <div className="bg-white rounded-xl shadow-sm p-6">
-            <h2 className="text-lg font-semibold mb-4">أختر طريقة الدفع</h2>
+            <h2 className="text-lg font-semibold mb-4 text-[#1C1C1C]">
+              أختر طريقة الدفع
+            </h2>
             <div className="space-y-3 text-sm">
               <div className="border p-3 rounded cursor-pointer flex justify-between items-center">
                 الدفع باستخدام البطاقة
@@ -148,15 +166,14 @@ const Checkout = () => {
                 دفع بالتقسيط عن طريق الموقع — من 10 إلى 10,000 JOD
               </div>
             </div>
-            <button className="mt-6 w-full bg-blue-600 hover:bg-blue-700 text-white py-3 rounded font-semibold">
-              إتمام الدفع
-            </button>
           </div>
         </section>
 
         {/* Order Summary */}
         <section className="bg-white rounded-xl shadow-sm p-6 h-fit">
-          <h2 className="text-lg font-semibold mb-4">تفاصيل الطلب</h2>
+          <h2 className="text-xl font-bold mb-4 text-[#1C1C1C]">
+            تفاصيل الطلب
+          </h2>
           <div className="flex justify-between mb-3">
             <div>
               <p className="font-medium">جراحة الفم والأسنان</p>
@@ -176,6 +193,13 @@ const Checkout = () => {
           </div>
         </section>
       </main>
+
+      {/* Payment Button */}
+      <div className="w-full flex justify-center px-4 md:px-[80px] mt-8">
+        <button className="w-full max-w-[400px] bg-[#0798F1] hover:bg-[#007dd1] text-white py-3 rounded-lg font-semibold text-sm">
+          إتمام الدفع
+        </button>
+      </div>
 
       {/* Footer */}
       <footer className="bg-[#0C1E2C] text-white py-10 px-4 md:px-[80px] text-sm mt-16">
