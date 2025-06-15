@@ -52,15 +52,19 @@ const Checkout = () => {
       </header>
 
       {/* Breadcrumb */}
-      <div className="max-w-[1440px] mx-auto px-4 md:px-[80px] mt-6 mb-4 text-sm text-[#4B4B4B] font-medium">
-        <span
-          onClick={() => navigate(-1)}
-          className="cursor-pointer hover:underline"
-        >
-          الرجوع
-        </span>{" "}
-        &gt; <span className="text-[#1C1C1C] font-semibold">الدفع</span>
+      <div
+        className="max-w-[1440px] mx-auto px-4 md:px-[80px] pt-6 text-right"
+        dir="rtl"
+      >
+        <div className="text-sm text-[#4B4B4B] font-normal mb-[-4px]">
+          &lt; الرجوع
+        </div>
+        <div className="text-[#222222] text-[24px] font-bold leading-[100%] text-right mt-[6px]">
+          الدفع
+        </div>
       </div>
+
+      <br></br>
 
       {/* Checkout Body */}
       <main className="max-w-[1440px] mx-auto px-4 md:px-[80px] grid grid-cols-1 lg:grid-cols-2 gap-8">
