@@ -1,9 +1,12 @@
 import React from "react";
+import { useNavigate } from "react-router-dom"; // ✅ Add this
 import { FiChevronDown, FiShoppingCart, FiBell } from "react-icons/fi";
 import avatar from "../assets/avatar-man.png";
 import logo from "../assets/ulm-care-logo.png";
 
 const Checkout = () => {
+  const navigate = useNavigate(); // ✅ Use navigate
+
   return (
     <div className="bg-[#F9FAFB] min-h-screen text-right" dir="rtl">
       {/* Navbar */}
@@ -15,7 +18,10 @@ const Checkout = () => {
                 <img src={logo} alt="Ulm Care Logo" className="h-[36px]" />
               </div>
               <div className="flex gap-4 text-[#6F6F6F] text-base">
-                <span className="text-[#0798F1] font-semibold cursor-pointer">
+                <span
+                  onClick={() => navigate(-1)}
+                  className="text-[#0798F1] font-semibold cursor-pointer hover:underline"
+                >
                   الرئيسية
                 </span>
                 <div className="flex items-center gap-1 cursor-pointer">
@@ -47,28 +53,6 @@ const Checkout = () => {
 
       {/* Checkout Body */}
       <main className="max-w-[1440px] mx-auto px-4 md:px-[80px] py-12 grid grid-cols-1 lg:grid-cols-2 gap-8">
-        {/* Order Summary */}
-        <section className="bg-white rounded-xl shadow-sm p-6 h-fit">
-          <h2 className="text-lg font-semibold mb-4">تفاصيل الطلب</h2>
-          <div className="flex justify-between mb-3">
-            <div>
-              <p className="font-medium">جراحة الفم والأسنان</p>
-              <p className="text-sm text-gray-500">
-                إزالة الصفائح والبراغي - يتطلب الصيام
-              </p>
-            </div>
-            <div className="text-gray-600">250 JOD</div>
-          </div>
-          <div className="flex justify-between text-sm text-gray-500 mb-2">
-            <span>الضريبة (%16)</span>
-            <span>35 JOD</span>
-          </div>
-          <div className="flex justify-between font-bold text-blue-600 mt-2">
-            <span>المبلغ المستحق (شامل الضريبة)</span>
-            <span>285 JOD</span>
-          </div>
-        </section>
-
         {/* Billing Form & Payment */}
         <section>
           <div className="bg-white rounded-xl shadow-sm p-6 mb-6">
@@ -134,7 +118,6 @@ const Checkout = () => {
             </button>
           </div>
 
-          {/* Payment Methods */}
           <div className="bg-white rounded-xl shadow-sm p-6">
             <h2 className="text-lg font-semibold mb-4">أختر طريقة الدفع</h2>
             <div className="space-y-3 text-sm">
@@ -168,6 +151,28 @@ const Checkout = () => {
             <button className="mt-6 w-full bg-blue-600 hover:bg-blue-700 text-white py-3 rounded font-semibold">
               إتمام الدفع
             </button>
+          </div>
+        </section>
+
+        {/* Order Summary */}
+        <section className="bg-white rounded-xl shadow-sm p-6 h-fit">
+          <h2 className="text-lg font-semibold mb-4">تفاصيل الطلب</h2>
+          <div className="flex justify-between mb-3">
+            <div>
+              <p className="font-medium">جراحة الفم والأسنان</p>
+              <p className="text-sm text-gray-500">
+                إزالة الصفائح والبراغي - يتطلب الصيام
+              </p>
+            </div>
+            <div className="text-gray-600">250 JOD</div>
+          </div>
+          <div className="flex justify-between text-sm text-gray-500 mb-2">
+            <span>الضريبة (%16)</span>
+            <span>35 JOD</span>
+          </div>
+          <div className="flex justify-between font-bold text-blue-600 mt-2">
+            <span>المبلغ المستحق (شامل الضريبة)</span>
+            <span>285 JOD</span>
           </div>
         </section>
       </main>
