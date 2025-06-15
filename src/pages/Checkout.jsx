@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { FiChevronDown, FiShoppingCart, FiBell } from "react-icons/fi";
 import avatar from "../assets/avatar-man.png";
 import logo from "../assets/ulm-care-logo.png";
+import { FiEdit2, FiTrash2 } from "react-icons/fi";
 
 const Checkout = () => {
   const navigate = useNavigate();
@@ -90,28 +91,50 @@ const Checkout = () => {
         {/* Form & Payment */}
         <section className="w-full lg:w-1/2 flex flex-col gap-6">
           {/* Saved Addresses */}
-          <div className="bg-white p-6 rounded-xl shadow-sm">
+          <div
+            className="bg-white p-6 rounded-xl shadow-sm w-full max-w-[582px] text-right"
+            dir="rtl"
+          >
             <h2 className="text-xl font-bold mb-4 text-[#1C1C1C]">
               عنوان الفواتير المحفوظة
             </h2>
             <div className="space-y-3">
-              {[1, 2].map((_, i) => (
+              {[0, 1].map((i) => (
                 <div
                   key={i}
-                  className={`border p-3 rounded-lg flex justify-between items-center ${
-                    i === 0 ? "border-blue-500 bg-blue-50" : "border-gray-300"
-                  }`}
+                  className={`flex justify-between items-start gap-2 rounded-[8px] p-4 border text-sm
+          ${
+            i === 0
+              ? "bg-[#F3FAFE] border-[#ADE4FF]"
+              : "bg-white border-[#D8D8D8]"
+          }`}
                 >
-                  <div>
-                    <p className="font-bold text-sm">محمود محمد</p>
-                    <p className="text-sm text-gray-500">
-                      شارع الملك في حي الورود - الرياض، المملكة العربية السعودية
-                      11025
-                    </p>
+                  {/* Icons */}
+                  <div className="flex flex-col items-start gap-2 text-gray-400">
+                    <button title="حذف">🗑️</button>
+                    <button title="تعديل">✏️</button>
                   </div>
-                  {i === 0 && (
-                    <span className="text-blue-500 font-bold text-lg">✔</span>
-                  )}
+
+                  {/* Text info */}
+                  <div className="flex-1 text-right">
+                    <p className="font-bold text-sm text-[#1C1C1C]">
+                      محمود محمد
+                    </p>
+                    <p className="text-gray-500 leading-5 mt-1">
+                      شارع الملك فهد، حي الورود، الرياض، <br />
+                      المملكة العربية السعودية
+                    </p>
+                    <p className="text-gray-400 mt-1 text-sm">11025</p>
+                  </div>
+
+                  {/* Select status */}
+                  <div className="mt-1">
+                    {i === 0 ? (
+                      <div className="text-blue-500 text-xl">✔</div>
+                    ) : (
+                      <div className="w-4 h-4 rounded-full border border-gray-400" />
+                    )}
+                  </div>
                 </div>
               ))}
             </div>
